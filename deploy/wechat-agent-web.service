@@ -1,0 +1,23 @@
+[Unit]
+Description=WeChat Agent Web Console
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=wechat-agent
+WorkingDirectory=/opt/wechat-agent
+Environment=PYTHONUNBUFFERED=1
+EnvironmentFile=-/opt/wechat-agent/config/.env
+ExecStart=/opt/wechat-agent/.venv/bin/wechat-agent web --host 127.0.0.1 --port 8000
+Restart=on-failure
+RestartSec=10
+UMask=0077
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectHome=true
+ProtectSystem=full
+ReadWritePaths=/opt/wechat-agent/output /opt/wechat-agent/config /opt/wechat-agent/web/assets
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,99 @@
+wechat:
+  app_id: ${WECHAT_APP_ID}
+  app_secret: ${WECHAT_APP_SECRET}
+  publish_mode: draft_only
+llm:
+  base_url: https://ark.cn-beijing.volces.com/api/v3/chat/completions
+  api_key: ${DEEPSEEK_API_KEY}
+  model: deepseek-v4-pro-260425
+  temperature: 0.8
+  max_tokens: 8096
+  timeout: 120
+  input_price_per_million: 0.0
+  output_price_per_million: 0.0
+image:
+  source: custom
+  provider: auto
+  api_key: ${IMAGE_API_KEY}
+  model: doubao-seedream-5-0-260128
+  api_size: 2560x1440
+  cover_width: 900
+  cover_height: 383
+  thumb_size: 200
+  cover_bg: '#0b2947'
+  cover_fg: '#ffffff'
+  inline_images: 2
+  base_url: https://ark.cn-beijing.volces.com/api/v3/images/generations
+search:
+  provider: tavily
+  base_url: https://api.tavily.com
+  api_key: ${TAVILY_API_KEY}
+  search_depth: basic
+  timeout: 30
+hot_sources:
+- weibo
+- zhihu
+- toutiao
+- cls
+topic_filter:
+  enabled: true
+  max_candidates: 10
+  max_topics: 3
+  min_rank: 50
+  min_score: 60.0
+  whitelist:
+  - AI
+  - 人工智能
+  - 大模型
+  - 科技
+  blacklist:
+  - 明星
+  - 绯闻
+  - 八卦
+  - 恐怖
+  - 彩票
+  - 游戏充值
+account_name: 观思辩明
+account_position: 科技资讯与深度分析，聚焦 AI 与大模型
+audience: 科技从业者、产品经理、关注 AI 的普通读者
+target_words: 1500
+notify:
+  enabled: false
+  webhook_url: ${NOTIFY_WEBHOOK_URL}
+  webhook_type: feishu
+schedule:
+  enabled: false
+  daily_time: 08:30
+  timezone: Asia/Shanghai
+billing:
+  enabled: true
+  trial_enabled: true
+  default_trial_count: 3
+  price_per_generation_fen: 200
+  platform_include_images: true
+  max_target_words: 3000
+  payment_enabled: false
+  payment_provider: wechat_native
+  purchase_options:
+  - 1
+  - 5
+  - 10
+  order_expire_minutes: 15
+  payment_notify_url: ''
+  wechat_pay_mch_id: ''
+  wechat_pay_serial_no: ''
+  wechat_pay_private_key_path: ''
+  wechat_pay_public_key_id: ''
+  wechat_pay_public_key_path: ''
+  wechat_pay_api_v3_key: ${WECHAT_PAY_API_V3_KEY}
+features:
+  user_api_config: false
+registration:
+  enabled: true
+  default_role: creator
+  account_name: 观思辩明
+  follow_instructions: 请使用微信扫码关注“观思辩明”公众号。
+  private_message_instructions: 关注后，请在公众号私信中发送注册时填写的完整手机号，管理员核对后批准。
+  qr_image: /assets/account-qr-custom.jpg
+  application_expire_days: 7
+output_dir: output

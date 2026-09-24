@@ -1,0 +1,19 @@
+# 核心
+requests>=2.31
+PyYAML>=6.0
+
+# 配图（pillow 合成）
+Pillow>=10.0
+
+# 定时（schedule 命令需要）
+APScheduler>=3.10
+
+# Web 管理台
+FastAPI>=0.110
+uvicorn>=0.29
+
+# MySQL 生产数据库
+PyMySQL>=1.1
+
+# 测试
+pytest>=7.0

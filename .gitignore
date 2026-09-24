@@ -1,0 +1,34 @@
+# Local secrets and machine-specific configuration
+config/.env
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.pfx
+
+# Generated data and caches
+output/
+__pycache__/
+*.pyc
+.pytest_cache/
+.npm-cache/
+.playwright-mcp/
+.idea/
+.venv/
+venv/
+node_modules/
+tests/_tmp/
+*.log
+*.db
+*.sqlite
+*.sqlite3
+
+# Downloaded research material and local diagnostics
+research/raw/
+research/diagnostics/
+
+# Unreferenced local photos and QR images at the repository root
+/*.jpg
+/*.jpeg
