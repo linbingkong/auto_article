@@ -46,5 +46,5 @@ export async function renderHelp(){
     document.querySelector('#manualPrint').addEventListener('click',()=>window.print());
     document.querySelector('#manualTop').addEventListener('click',()=>window.scrollTo({top:0,behavior:'smooth'}));
     document.querySelectorAll('.manual-content a[href^="#"]').forEach(link=>link.addEventListener('click',event=>{const target=document.querySelector(link.getAttribute('href'));if(target){event.preventDefault();target.scrollIntoView({behavior:'smooth',block:'start'});}}));
-  }catch(e){renderError(e,'请确认 docs/USER_MANUAL.md 与配套截图文件已经部署。');}
+  }catch(e){renderError(e,'请确认 web/manual/USER_MANUAL.md 与配套截图文件已经部署。');}
 }

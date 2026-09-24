@@ -36,6 +36,26 @@ def test_web_static_and_health():
     assert client.get("/manual-assets/not-found.png").status_code == 404
 
 
+def test_help_manual_uses_web_resources_without_docs(monkeypatch, tmp_path):
+    manual_dir = tmp_path / "web" / "manual"
+    image_dir = manual_dir / "assets" / "user-manual"
+    image_dir.mkdir(parents=True)
+    (manual_dir / "USER_MANUAL.md").write_text(
+        "# 测试手册\n\n![截图](assets/user-manual/01-login.png)", encoding="utf-8"
+    )
+    (image_dir / "01-login.png").write_bytes(b"test-png")
+    monkeypatch.setattr(web_app, "PROJECT_ROOT", tmp_path)
+
+    client = TestClient(app)
+    response = client.get("/api/help/manual")
+    assert response.status_code == 200
+    assert "测试手册" in response.json()["data"]["html"]
+    assert "/manual-assets/01-login.png" in response.json()["data"]["html"]
+    image = client.get("/manual-assets/01-login.png")
+    assert image.status_code == 200
+    assert image.content == b"test-png"
+
+
 def test_admin_token_protection(monkeypatch):
     monkeypatch.setenv("WEB_ADMIN_TOKEN", "test-admin")
     client = TestClient(app)

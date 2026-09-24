@@ -32,3 +32,4 @@ research/diagnostics/
 # Unreferenced local photos and QR images at the repository root
 /*.jpg
 /*.jpeg
+docs/

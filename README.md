@@ -4,6 +4,36 @@
 
 > 默认是合规的半自动模式：系统只投递草稿箱，管理员终审后在公众号后台点击“发表”。不使用模拟登录。
 
+## 线上体验
+
+**[打开网页，体验热点选题与文章生成](http://39.96.80.70/)** · [查看用户使用手册](web/manual/USER_MANUAL.md)
+
+网页端可浏览热点、选择话题、生成并编辑文章。注册申请需按页面提示完成公众号私信核对，由管理员人工审批；实际可用功能与额度以线上配置为准。
+
+## 界面预览
+
+> 以下为界面示意，实际页面以线上版本为准。
+
+**内容工作台** · 集中查看热点、文章与任务
+
+![观思辩明内容工作台界面](web/assets/readme/dashboard.png)
+
+**热点选题** · 从榜单筛选话题，也可搜索榜单外内容
+
+![观思辩明热点选题界面](web/assets/readme/hotspots.png)
+
+**文章内容** · 生成后继续查看和编辑，而非直接发表
+
+![观思辩明文章内容界面](web/assets/readme/articles.png)
+
+## 关注公众号
+
+扫码关注 **观思辩明**。申请体验时，按注册页面提示在公众号私信中发送注册手机号，供管理员人工核对。
+
+<img src="web/assets/account-qr-custom.jpg" alt="观思辩明公众号二维码" width="220">
+
+更多操作步骤见 [用户使用手册](web/manual/USER_MANUAL.md)。
+
 ## 当前状态
 
 MVP 已实现：
@@ -37,7 +67,7 @@ MVP 已实现：
 
 ## 技术架构
 
-详见 [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md)。图片服务源选择、Key/端点兼容规则见 [`docs/IMAGE_SOURCES.md`](docs/IMAGE_SOURCES.md)。
+以下为系统组件与数据流概览。图片服务源可在 Web 配置中心设置。
 
 ```text
 浏览器 Web 管理台（配置 / 选题 / 编辑 / 预览 / 推草稿）
@@ -171,7 +201,7 @@ wechat-agent web --host 127.0.0.1 --port 8000
 
 ### 生产部署
 
-完整部署、HTTPS、systemd、安全加固、备份恢复和升级回滚说明见：[`docs/PRODUCTION_DEPLOYMENT.md`](docs/PRODUCTION_DEPLOYMENT.md)。
+生产部署可使用 `deploy/` 中的 systemd/cron/Nginx 模板，按实际环境配置 HTTPS、安全加固、备份与回滚。
 
 ```bash
 sudo cp deploy/wechat-agent-web.service /etc/systemd/system/

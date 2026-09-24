@@ -1,6 +1,6 @@
 # 数据表说明（wechat_agent · MySQL）
 
-本文说明生产数据库 `wechat_agent` 中每张表存放的内容。字段级建表语句见 `schema_mysql.sql`（MySQL）与 `schema.sql`（SQLite），两边结构一致；存储全景与防覆盖 SOP 见 `docs/DATA_STORAGE.md`。
+本文说明生产数据库 `wechat_agent` 中每张表存放的内容。字段级建表语句见 `schema_mysql.sql`（MySQL）与 `schema.sql`（SQLite），两边结构一致。
 
 - 生产库：`MYSQL_HOST:3306/wechat_agent`，MySQL 8.0.46，utf8mb4 / InnoDB
 - 共 12 张表，分为 6 个业务域

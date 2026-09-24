@@ -400,7 +400,7 @@ def health() -> Dict[str, Any]:
 @app.get("/api/help/manual")
 def help_manual() -> Dict[str, Any]:
     """读取仓库中的使用手册，并转换为站内可展示的 HTML。"""
-    manual_path = PROJECT_ROOT / "docs" / "USER_MANUAL.md"
+    manual_path = PROJECT_ROOT / "web" / "manual" / "USER_MANUAL.md"
     if not manual_path.exists():
         raise HTTPException(status_code=404, detail="使用手册尚未生成")
     source = manual_path.read_text(encoding="utf-8-sig")
@@ -423,7 +423,7 @@ def help_manual() -> Dict[str, Any]:
 def manual_asset(name: str):
     if not name.lower().endswith(".png") or Path(name).name != name:
         raise HTTPException(status_code=404, detail="手册图片不存在")
-    path = PROJECT_ROOT / "docs" / "assets" / "user-manual" / name
+    path = PROJECT_ROOT / "web" / "manual" / "assets" / "user-manual" / name
     if not path.exists():
         raise HTTPException(status_code=404, detail="手册图片不存在")
     return FileResponse(path, media_type="image/png")
